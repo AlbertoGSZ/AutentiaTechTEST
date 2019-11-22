@@ -1,7 +1,5 @@
 package com.ATT.Autentia.TechTEST.entities;
 
-import javax.annotation.Generated;
-
 public class Teacher {
 
     /**Attributes*/
