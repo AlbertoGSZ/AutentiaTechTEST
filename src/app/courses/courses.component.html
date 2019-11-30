@@ -1,0 +1,98 @@
+
+<hr>
+
+
+<!--Contenedor de tarjetas: titulo + contenido-->
+<div class="container shape-container d-flex align-items-center ">
+  <div class="col px-10">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-8 text-left">
+
+
+        <!--Contenedor de título-->
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="text-blue display-5 mb-0">Añadir curso</h5>
+
+          </div>
+        </div>
+
+        <br>
+
+       <!--Botones de componentes-->
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+
+              <div class="tab-pane fade show active text-center" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+
+
+      <div class="text-left">
+          <div class="col px-10">
+
+            Título: <label>
+              <input placeHolder="Introduce un título" [(ngModel)]="request.name">
+            </label>
+            <br>
+            <br>
+            Profesor: <select name="teacher" [(ngModel)]="request.teacher">
+               <option value="1">Roberto Canales Mora</option>
+               <option value="2">Carlos del Hoyo Muñoz</option>
+               <option value="3">Alejandro Pérez García</option>
+               <option value="4">Jose Manuél Sánchez Suarez</option>
+               <option value="5">Rubén Aguiléra Díaz-Heredero</option>
+               <option value="6">Carlos García Pérez</option>
+            </select>
+             <br>
+             <br>
+            Nivel: <select name="difficultyLevel" [(ngModel)]="request.difficultyLevel">
+               <option value="1">Básico</option>
+               <option value="2">Intermedio</option>
+               <option value="3">Experto</option>
+            </select>
+
+            </div>
+
+             <br>
+
+            <div class="col px-10">
+                  Horas de duración: <input type="number" name="durationHours" min="1" max="500" [(ngModel)]="request.durationHours"/>
+                   <br>
+                   <br>
+                  <div class="custom-control custom-checkbox mb-3">
+                   <input class="custom-control-input" id="customCheck1" type="checkbox" [(ngModel)]="request.activatedCourse">
+                   <label class="custom-control-label" for="customCheck1">
+                     <span>Activo</span>
+                   </label>
+                  </div>
+            </div>
+        </div>
+                <br>
+
+                <div *ngIf="response">
+                  <h3>- Curso creado -</h3><br>
+                  <label>Título: {{response.name}}</label><br>
+                  <label>Activo: {{response.activatedCourse}}</label><br>
+                  <label>Horas de duración: {{response.durationHours}}</label><br>
+                  <label>Nivel de dificultad: {{response.difficultyLevel}}</label><br>
+                  <label>ID Profesor:{{response.teacherID}}</label>
+                </div>
+
+                <!--Botón de nuevo curso-->
+                <div class="text-left">
+                  <button class="btn btn-icon btn-3 btn-primary" type="button">
+                      <span class="btn-inner--text" href="/courses/create" routerLink="/courses/create" (click)="save()">Crear</span>
+                  </button>
+                </div>
+                <!--<app-create-course></app-create-course>-->
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

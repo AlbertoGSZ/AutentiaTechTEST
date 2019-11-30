@@ -1,36 +1,25 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ToastrModule } from "ngx-toastr";
-
-import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routing';
-
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
+import { CoursesComponent } from './courses/courses.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    CoursesComponent
   ],
   imports: [
-    BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
-      useHash: true
-    }),
-    SidebarModule,
-    NavbarModule,
-    ToastrModule.forRoot(),
-    FooterModule,
-    FixedPluginModule
+    BrowserModule,
+    NgxPaginationModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, CoursesComponent]
 })
 export class AppModule { }

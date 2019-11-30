@@ -7,7 +7,7 @@ public class Course {
 
   private int id;
   private String name;
-  private float durationHours;
+  private int durationHours;
   private boolean activatedCourse;
   private DifficultyLevel difficultyLevel;
   private int teacherID;
@@ -16,7 +16,7 @@ public class Course {
 
   /**Constructors*/
 
-  public Course(String name, float durationHours, boolean activatedCourse, DifficultyLevel difficultyLevel, int teacherID) {
+  public Course(String name, int durationHours, boolean activatedCourse, DifficultyLevel difficultyLevel, int teacherID) {
     this.name = name;
     this.durationHours = durationHours;
     this.activatedCourse = activatedCourse;
@@ -24,39 +24,6 @@ public class Course {
     this.teacherID = teacherID;
   }
 
-  public Course(int id, String name, float durationHours, boolean activatedCourse, String difficultyLevel, int teacherID) {
-    this.id = id;
-    this.name = name;
-    this.durationHours = durationHours;
-    this.activatedCourse = activatedCourse;
-    switch (difficultyLevel){
-      case "Basic": this.difficultyLevel = DifficultyLevel.BASIC;
-            break;
-      case "Intermediate": this.difficultyLevel = DifficultyLevel.INTERMEDIATE;
-            break;
-      case "Advanced": this.difficultyLevel = DifficultyLevel.ADVANCED;
-            break;
-    }
-    this.teacherID = teacherID;
-  }
-
-  public Course( String name, float durationHours, boolean activatedCourse, String difficultyLevel, int teacherID) {
-    this.name = name;
-    this.durationHours = durationHours;
-    this.activatedCourse = activatedCourse;
-    switch (difficultyLevel){
-      case "Basic": this.difficultyLevel = DifficultyLevel.BASIC;
-        break;
-      case "Intermediate": this.difficultyLevel = DifficultyLevel.INTERMEDIATE;
-        break;
-      case "Advanced": this.difficultyLevel = DifficultyLevel.ADVANCED;
-        break;
-    }
-    this.teacherID = teacherID;
-  }
-
-  public Course() {
-  }
 
   /**Getters & setters*/
 
@@ -76,11 +43,15 @@ public class Course {
     return durationHours;
   }
 
-  public void setDurationHours(float durationHours) {
+  public void setDurationHours(int durationHours) {
     this.durationHours = durationHours;
   }
 
   public boolean isActivatedCourse() {
+    return activatedCourse;
+  }
+
+  public boolean getActivatedCourse() {
     return activatedCourse;
   }
 

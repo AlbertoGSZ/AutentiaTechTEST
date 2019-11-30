@@ -1,1 +1,79 @@
-<router-outlet></router-outlet>
+<br>
+
+<!--Contenedor de tarjetas: titulo + contenido-->
+<div class="container shape-container d-flex align-items-center ">
+  <div class="col px-10">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-8 text-left">
+
+
+        <!--Contenedor de título-->
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="text-blue display-5 mb-0">Catálogo de cursos</h5>
+             <!--Botones de componentes-->
+        <!-- <div>
+              <nav>
+                  <a routerLink="/courses">Lista de cursos</a>
+              </nav>
+            </div>-->
+          </div>
+        </div>
+
+        <br>
+
+       <!--Botones de componentes-->
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+
+              <div class="tab-pane fade show active text-center" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+
+                <table>
+                  <thead>
+                    <td>Título</td>
+                    <td>Dificultad</td>
+                    <td>Horas</td>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor= "let course of responseCourses | paginate: {itemsPerPage: 5, currentPage: pageActual}">
+                      <td>{{course.name}}</td>
+                      <td>{{course.difficultyLevel}}</td>
+                      <td>{{course.durationHours}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!--Botones de paginación-->
+                <br>
+                <div class="text-left">
+                  <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                    </ul>
+                  </nav>
+                </div>
+
+                <!--Botón de nuevo curso-->
+                <div class="text-left">
+                  <button class="btn btn-icon btn-3 btn-primary" type="button">
+                    <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                      <span class="btn-inner--text" href="/courses" routerLink="/courses">Nuevo curso</span>
+                  </button>
+                </div>
+                <!--<app-create-course></app-create-course>-->
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

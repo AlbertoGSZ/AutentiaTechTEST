@@ -8,9 +8,6 @@ import java.util.List;
 @Repository
 public interface TeacherRepository {
 
-
-
-
         @Select("SELECT * FROM teacher")
         List<Teacher> selectTeachers();
 
